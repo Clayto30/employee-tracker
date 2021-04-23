@@ -1,21 +1,21 @@
-CREATE TABLE departments (
+CREATE TABLE department (
   id INTEGER AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(50) NOT NULL
+  name VARCHAR(30) NOT NULL
 );
 
 CREATE TABLE roles (
-    job_title VARCHAR(30) NOT NULL,
-  id INTEGER AUTO_INCREMENT PRIMARY KEY,
-  CONSTRAINT fk_dept FOREIGN KEY (departments_name) REFERENCES departments(name),
-  salary INTEGER(30) NOT NULL
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(30) NOT NULL,
+    salary INTEGER(30) NOT NULL,
+  CONSTRAINT fk_dept FOREIGN KEY (department_id) REFERENCES department(id)
 );
 
-CREATE TABLE employees (
+CREATE TABLE employee (
   id INTEGER AUTO_INCREMENT PRIMARY KEY,
   first_name VARCHAR(30) NOT NULL,
   last_name VARCHAR(30) NOT NULL,
-  CONSTRAINT fk_roles FOREIGN KEY (roles_job_title) REFERENCES roles(job_title),
-  managers VARCHAR(30) NOT NULL
+  CONSTRAINT fk_role FOREIGN KEY (role_id) REFERENCES role(title),
+  -- constrain to an employee in same table  
 );
 
 
