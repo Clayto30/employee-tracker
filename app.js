@@ -1,4 +1,5 @@
 const inquirer = require('inquirer');
+const db = require('./db/connection');
 console.log('It is workin');
 inquirer
     .prompt([
