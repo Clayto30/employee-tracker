@@ -38,11 +38,13 @@ appInit = function () {
                     appInit();
                 })
             } else if (answers.request === "View all roles") {
-                db.query(`SELECT title, roles.id, department.name 
-                    AS dept_name
+                db.query(`SELECT title, roles.id, department.name
+                    AS dept_name,
+                    salary
                     FROM roles
                     LEFT JOIN department
-                    ON roles.department_id = department.id`, (err, rows) => {
+                    ON roles.department_id = department.id`, 
+                    (err, rows) => {
                     if (err) {
                         console.log("Sorry, it didn't work.")
                         return;
@@ -51,7 +53,13 @@ appInit = function () {
                     appInit();
                 })
             } else if (answers.request === "View all employees") {
-                db.query(`SELECT * FROM employee`, (err, rows) => {
+                db.query(`SELECT employee.id, first_name, last_name, roles.title, department.name AS "Department", roles.salary
+                        FROM employee
+                        LEFT JOIN roles
+                        ON employee.roles_id = roles.id
+                        LEFT JOIN department
+                        ON roles.department_id = department.id`, 
+                        (err, rows) => {
                     if (err) {
                         console.log("Sorry, it didn't work.")
                         return;
@@ -89,6 +97,7 @@ appInit = function () {
                                 console.log("Please input valid entries!");
                             } else {
                                 console.log("Role created!");
+                                appInit();
                             }
                         })
                     })

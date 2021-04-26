@@ -6,7 +6,7 @@ As a manager keeping tracking of your crew is an extremely important aspect of y
 
 To see my application's code, here is my [Employee-Tracker GitHub Repository](https://github.com/Clayto30/employee-tracker).
 
-If you would like to see the app's functionality, please view my [Employee-Tracker Walkthrough video](https://).
+If you would like to see the app's functionality, please view my [Employee-Tracker Walkthrough video](https://drive.google.com/file/d/1NSbUZy76_VcijnU1nVWqwM10ypHoMN99/view).
 
 ## Table of Contents (Optional)
 
